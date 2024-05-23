@@ -1,7 +1,12 @@
 <?php
 
+use App\Http\Controllers\home;
+
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return 'Bienvenido a beatbox';
-});
+Route::get('/', home::class);
+
+
+Route::get('/principal', [home::class, 'principal']);
+
+
