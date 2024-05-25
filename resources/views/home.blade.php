@@ -13,7 +13,7 @@
     {{-- {{ route('login') }} --}}
     <form method="POST" action="">
         @csrf
-        <div class="form-group">
+        <div class="form-group" >
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required autofocus>
             @error('email')
@@ -28,6 +28,11 @@
             @enderror
         </div>
         <button type="submit" class="btn">Ingresar</button>
+        <br>
+        <br>
+        
     </form>
+    <a href="{{ url('/registro') }}"><button type="submit" class="btn">Registrarse</button></a>
+    
 </div>
 @endsection
