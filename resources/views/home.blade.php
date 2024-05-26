@@ -11,7 +11,7 @@
 <div class="login-container">
     <h2>Ingresa</h2>
     {{-- {{ route('login') }} --}}
-    <form method="POST" action="">
+    <form method="POST" action="{{ url('principal') }}">
         @csrf
         <div class="form-group" >
             <label for="email">Email</label>

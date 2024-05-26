@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 
@@ -45,6 +46,26 @@ class home extends Controller
 
         // Redirigir a una página de éxito, por ejemplo
         return redirect(url('/registro'))->with('success', 'Usuario registrado exitosamente.');
+    }
+
+    public function login(Request $request)
+    {
+        // Validación de los datos del formulario
+        $credentials = $request->validate([
+            'email' => 'required|string|email',
+            'password' => 'required|string',
+        ]);
+
+        // Intentar autenticar al usuario
+        if (Auth::attempt($credentials)) {
+            // Autenticación exitosa
+            return redirect()->intended('/principal');
+        }
+
+        // Autenticación fallida
+        return back()->withErrors([
+            'email' => 'Las credenciales proporcionadas no son válidas.',
+        ]);
     }
 
 

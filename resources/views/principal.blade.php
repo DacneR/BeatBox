@@ -9,4 +9,6 @@
 
 @section('content')
 <h1>principal</h1>
+
+
 @endsection

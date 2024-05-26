@@ -6,8 +6,8 @@
 <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 @endsection
 
-
 @section('content')
+    
 <div class="login-container">
     <h1>Registro</h1>
 
@@ -64,4 +64,13 @@
     </form>
     <a href="{{ url('/') }}"><button type="submit" class="btn">Home</button></a>
 </div>
+<br>
+<br>
+@if(session('success'))
+
+        <div class="alert-success">
+            {{ session('success') }}
+        </div>
+@endif
 @endsection
+
