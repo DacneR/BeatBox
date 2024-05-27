@@ -59,6 +59,8 @@ class home extends Controller
         // Intentar autenticar al usuario
         if (Auth::attempt($credentials)) {
             // Autenticación exitosa
+            $user = Auth::user();
+            session(['user' => $user]);
             return redirect()->intended('/principal');
         }
 
